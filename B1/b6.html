@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap-4.0.0/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+    <header class="header">
+        <br>
+        <br>
+    </header>
+    <div class="">
+        <div class="row">
+            <div class="col-9" style="margin-left: 10%;margin-right: 10%;">
+            <form name="form" action="" style="margin-left: 10%">
+                <div class="form-group row" name="nameType" id="">
+                    <div class="col-2 text-left" style="color: blue">
+                    <label><b>Chọn tập tin:</b></label> 
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" id="firstname" type="text" placeholder="">
+                    </div>
+                    <div class="col-4">
+                        <button style="width:25%">Browse</button>
+                    </div>
+                </div>
+                <div class="form-group row" name="nameType" id="">
+                    <div class="col-8" style="text-align: center">
+                        <button style="width: 20%" onclick="myFunction()">Upload</button>
+                    </div>
+                </div>
+                <div class="form-group row" name="nameType" id="">
+                    <div class="col-4 text-left" style="color: blue">
+                        <p id="demo" style="color: brown"></p>
+                    </div>
+                </div>
+        </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Đã upload thành công";
+        }
+        </script>
+   </body>
+</html>
