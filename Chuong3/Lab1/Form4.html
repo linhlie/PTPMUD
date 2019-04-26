@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Bài 1</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./bootstrap-4.0.0/dist/css/bootstrap.min.css">
+  </head>
+  <body onload="makeNewWindow()">
+    <br>
+    <center>
+        <form action="" name="myform" method="post">
+            <div>
+                <table width="633" height="423" border="1" style="margin-bottom: 30px">
+                    <tr>
+                        <td style="width: 25%;">Register Form</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 25%;">User Name</td>
+                        <td style="width: 75%;"><input type="text" name="username" style="width: 100%" required>
+                            <div id='myform_username_errorloc' class="error_strings"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" style="width: 100%;" required>
+                            <div id='myform_password_errorloc' class="error_strings"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password</td>
+                        <td><input type="password" is = "cf_password" name="cf-password" style="width: 100%;" required>
+                            <div id='myform_cf-password_errorloc' class="error_strings"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td><textarea name="address" style="overflow-y:scroll;width: 100%;" required></textarea>
+                            <div id='myform_address_errorloc' class="error_strings"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Marriage</td>
+                        <td><input type="checkbox" name="marriage" value="Da Ket Hon">
+                            <div id='myform_marriage_errorloc' class="error_strings"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <input type="radio" name="gender" value="Nam"> Male
+                            <input type="radio" name="gender" value="Nu"> Female
+                            <div id='myform_gender_errorloc' class="error_strings">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Programming languages</td>
+                        <td><input type="text" name="languages" style="width: 100%" required>
+                          <div id='myform_languages_errorloc' class="error_strings"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>Skill</td>
+                        <td>
+                        <input type="radio" name="skill" value="normal">Normal<br>
+                        <input type="radio" name="skill" value="good" />Good <br>
+                        <input type="radio" name="skill" value="very good" />Very good <br>
+                        <input type="radio" name="skill" value="excelent" />Excelent
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jobs:</td>
+                        <td>
+                        <select name="jobs"class="form-control">
+                            <option selected="selected" value="Công nghệ thông tin">Công nghệ thông tin</option>
+                            <option selected="selected" value="Cơ khí">Cơ khí</option>
+                            <option selected="selected" value="Diện tử">Diện tử</option>
+                            <option selected="selected" value="Kinh doanh">Kinh doanh</option>
+                        </select>
+                    </tr>
+                    <tr>
+                        <td>Hopies:</td>
+                        <td><input type="checkbox" name="hopies" value="sports" checked="checked" />Sports &nbsp;
+                            <input type="checkbox" name="hopies" value="music" />Music &nbsp;
+                            <input type="checkbox" name="hopies" value="news" />News &nbsp;
+                            <input type="checkbox" name="hopies" value="sience" />Sience &nbsp;
+                         </td>
+                    </tr>
+                </table>
+                <div>
+                    <input type="reset" value="Reset"/>
+                    <input type="submit" value="Register" onclick="showData()" />
+                    <input type="submit" value="Kiểm tra"/>
+                    <input type="submit" value="Mở trong tab mới" onclick="subWrite()"/>  
+                </div>
+
+            </div>  
+        </form>
+    </center>
+    <script>
+
+        var newWindow;
+        function makeNewWindow(){
+            newWindow = window.open("","","status,height=400,width=500"); 
+        }
+        function subWrite(){
+        var username = document.myform.username.value;
+        var password = document.myform.password.value;
+        var cf_password = document.myform['cf-password'].value;
+        var addtress = document.myform.address.value;
+        var marriage = document.myform.marriage.value;
+        var gender = document.myform.gender.value;
+        var languages = document.myform.languages.value;
+        var skill = document.myform.skill.value;
+        var jobs = document.myform.jobs.value;
+        var hopies = "";
+			for(var i=0; i<document.myform.hopies.length; i++)
+			{
+				if(document.myform.hopies[i].checked)
+				{
+					hopies += (hopies?'-':'')+document.myform.hopies[i].value;
+				}	
+			  }
+        if(password == cf_password){
+            if (newWindow.closed) { 
+			      makeNewWindow(); 
+            }
+            newWindow.focus(); 
+            var newContent = "<html><head><title>title</title></head>"; 
+            newContent += "<body bgcolor='#FFC'>"; 
+            newContent += "Tên: "+username+"<br>";
+            newContent += "Mật Khẩu: "+password+"<br>";
+            newContent += "Địa chỉ: "+addtress+"<br>";
+            newContent += "Giới tính: "+gender+"<br>";
+            newContent += "Ngôn ngữ lập trình: "+languages+"<br>";
+            newContent += "Tình trạng hôn nhân: "+marriage+"<br>";
+            newContent += "Kỹ năng: "+skill+"<br>";
+            newContent += "Sở thích: "+hopies+"<br>";
+            newContent += "Nghề nghiệp: "+jobs+"<br>";
+            newContent += "</body></html>"; 
+            newWindow.document.write(newContent); 
+            newWindow.document.close(); 
+        }
+        else{
+                alert("Password và Confirm password phải giống nhau");
+          }
+        }
+        function showData(){
+              var username = document.myform.username.value;
+              var password = document.myform.password.value;
+              var cf_password = document.myform['cf-password'].value;
+              var addtress = document.myform.address.value;
+              var marriage = document.myform.marriage.value;
+              var gender = document.myform.gender.value;
+              var languages = document.myform.languages.value;
+              var skill = document.myform.skill.value;
+              var jobs = document.myform.jobs.value;
+              var hopies = "";
+                  
+              for(var i=0; i<document.myform.hopies.length; i++)
+              {
+                if(document.myform.hopies[i].checked)
+                {
+                  hopies += (hopies?'-':'')+document.myform.hopies[i].value;
+                }	
+              }
+              if(password == cf_password){
+                  alert(
+                      'Tên: '+username+'\n'+
+                      'Mật Khẩu: '+password+'\n'+
+                      'Địa chỉ: '+addtress+'\n'+
+                      'Giới tính: '+gender+'\n'+
+                      'Ngôn ngữ lập trình: '+languages+'\n'+
+                      'Tình trạng hôn nhân: '+marriage+'\n'+
+                      'Kỹ năng: '+skill+'\n'+
+                      'Sở thích: '+hopies+'\n'+
+                      'Nghề nghiệp: '+jobs+'\n'
+                  )
+              }
+              else{
+                  alert("Password và Confirm password phải giống nhau");
+            }
+          }
+    </script>
+</body>
+</html>
